@@ -3,11 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
   declarations: [
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -15,6 +23,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [RegisterComponent]
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }
