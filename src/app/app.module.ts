@@ -23,6 +23,6 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [LoginComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule { }

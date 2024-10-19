@@ -1,136 +1,79 @@
+
 .intro-section {
-    text-align: center;
-    color: white;
-    padding: 20px;
-  }
-  
+  text-align: center;
+  color: rgb(0, 26, 255);
+  padding: 20px;
+}
   .search-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
   }
-  
-  .product-category {
-    width: 200px;
-  }
-  
-  .search-input {
-    width: 300px;
-    background-color: rgb(19, 23, 42);
-    margin-right: 10px;
-    border-color: rgba(255, 255, 255, 0.5);
-    color: white;
-  }
-  
-  .form-control {
-    background-color: transparent;
-    color: white;
-  }
-  
-  .form-control::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgba(255, 255, 255, 0.5);
-    opacity: 1;
-    /* Firefox */
-  }
-  
-  .form-control:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .form-control::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: rgba(255, 255, 255, 0.5);
-  }
-  
-  .product-item {
-    background-color: rgb(19, 23, 42);
-    border: 1px solid rgb(35, 39, 61);
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .product-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .product-name {
-    color: white;
-  }
-  
-  .product-description {
-    color: rgb(173, 178, 203);
-  }
-  
-  .product-warranty {
-    color: rgb(242, 126, 212);
-  }
-  
-  .product-price {
-    color: white;
-  }
-  
-  .product-rating {
-    color: #FFD700;
-    margin-top: 10px;
-  }
-  
-  .product-actions {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .space-x {
-    margin: 0 5px;
-    /*margin-top, margin-right, margin-bottom, margin-left*/
-  }
-  
-  .button-container {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .call-button {
-    background-color: #d32f2f; /* Màu đỏ */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-  }
-  
-  .schedule-button {
-    background-color: #1976d2; /* Màu xanh */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-  }
-  
-  .phone-icon, .schedule-icon {
-    font-size: 18px;
-  }
-  .button-container {
-    display: flex;
-    justify-content: center; /* Canh giữa theo chiều ngang */
-    gap: 10px;
-    margin-top: 20px; /* Tùy chỉnh khoảng cách phía trên */
-  }
-  // ================================================================================
-  
-  
+
+    .search-input, .service-category, .btn-search {
+        height: 45px;
+        font-size: 1rem;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+
+    .form-control {
+        width: 250px;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+    }
+    .service-row {
+        background-color: #f5f5f5; /* Màu nền cho toàn bộ row */
+        padding: 20px;
+        border-radius: 10px; /* Bo tròn góc của cả row */
+        margin-bottom: 20px;
+    }
+    .btn-search {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 0 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-search:hover {
+        background-color: #0056b3;
+    }
+    .sevice-name {
+        color: rgb(89, 0, 255);
+      }
+      .service-item {
+        padding: 15px;
+        margin-bottom: 20px; /* Khoảng cách giữa các items */
+    }
+    
+    .service-card {
+        border: 1px solid #ddd; /* Khung bao quanh */
+        border-radius: 8px; /* Bo tròn góc */
+        padding: 20px; /* Khoảng cách bên trong khung */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+        transition: transform 0.2s ease; /* Hiệu ứng khi hover */
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px); /* Tạo hiệu ứng khi hover */
+    }
+    
+    .service-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    .service-description {
+        margin-bottom: 10px;
+        color: #555; /* Màu chữ nhạt hơn */
+    }
+    
+    .service-price, .service-insurancePrice {
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: #333; /* Màu chữ đậm hơn */
+    }
