@@ -6,6 +6,7 @@ import { LoginResponse } from 'src/app/responses/users/LoginResponse';
 import { RoleService } from 'src/app/services/role.service';
 import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent {
   constructor(
     private roleService: RoleService,
     private userService: UserService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -55,8 +57,11 @@ export class LoginComponent {
         const { token } = response;
         if (this.rememberMe) {
           this.tokenService.setToken(token);
-        }                
-        //this.router.navigate(['/login']);
+        }
+        if(response.role_id === 1){
+          this.router.navigate(['/home-user']);
+        }       
+        
       },
       complete: () => {
         debugger;
