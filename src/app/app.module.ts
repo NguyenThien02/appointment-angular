@@ -9,7 +9,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeUserComponent } from './components/home-user/home-user.component';
+import { HomeUserComponent } from './components/user-components/home-user/home-user.component';
+import { EditUserComponent } from './components/user-components/edit-user/edit-user.component';
+import { TokenInterceptor } from './interceptors/token.interceptor'; 
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { HomeUserComponent } from './components/home-user/home-user.component';
     LoginComponent,
     AppComponent,
     HomeUserComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,11 @@ import { HomeUserComponent } from './components/home-user/home-user.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
