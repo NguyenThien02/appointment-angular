@@ -1,60 +1,43 @@
-
-    <div class="container-fluid">
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid" *ngIf="userResponse">
         <div class="sidebar">
             <div class="profile">
-                <img src="https://via.placeholder.com/50" alt="avatar" class="profile-img">
-                <p class="profile-name">Nguyễn Duy Hưng</p>
+                <img src="assets/images1.jpeg" alt="avatar" class="profile-img">
+                <p class="profile-name">{{ userResponse.full_name }}</p>
             </div>
             <ul class="menu">
-                <li><a href="#">Bảng điều khiển</a></li>
-                <li class="active"><a href="#">Lịch làm việc</a></li>
+                <li class="active"><a href="#">Thông tin user</a></li>
+                <li><a href="#">Lịch làm việc</a></li>
                 <li><a href="#">Thông tin lịch khám</a></li>
             </ul>
         </div>
         <div class="main-content">
-            <div class="breadcrumb">
-                <a href="#">Trang chủ</a> / <a href="#">Lịch làm việc</a> / <a href="#">Tạo mới</a>
-            </div>
             <div class="form-section">
+                <h2 class="section-title">Thông tin chi tiết người dùng</h2>
                 <form action="">
                     <div class="form-group">
-                        <label for="exam-date">Ngày khám <span class="text-danger">(*)</span></label>
-                        <input type="date" id="exam-date" class="form-control">
+                        <label for="name">Họ và Tên:</label>
+                        <h3 class="user-detail">{{ userResponse.full_name }}</h3>
                     </div>
-
                     <div class="form-group">
-                        <label for="time-slot">Khoảng thời gian <span class="text-danger">(*)</span></label>
-                        <select id="time-slot" class="form-control">
-                            <option selected disabled>Chọn khoảng thời gian</option>
-                            <option value="morning">Sáng</option>
-                            <option value="afternoon">Chiều</option>
-                        </select>
+                        <label for="phone">Số ĐT:</label>
+                        <h3 class="user-detail">{{ userResponse.phone_number }}</h3>
                     </div>
-
                     <div class="form-group">
-                        <label for="max-patients">Số bệnh nhân đăng ký tối đa trong khoảng thời gian <span class="text-danger">(*)</span></label>
-                        <input type="number" id="max-patients" class="form-control" value="1">
+                        <label for="dob">Ngày sinh:</label>
+                        <h3 class="user-detail">{{ userResponse.birthday }}</h3>
                     </div>
-
                     <div class="form-group">
-                        <label for="schedule">Lịch làm việc</label>
-                        <textarea id="schedule" class="form-control" rows="4"></textarea>
+                        <label for="address">Địa chỉ:</label>
+                        <h3 class="user-detail">{{ userResponse.address }}</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Quyền đăng nhập:</label>
+                        <h3 class="user-detail">{{ userResponse.role.name }}</h3>
                     </div>
                 </form>
             </div>
-
-            <div class="actions">
-                <div class="publish-section">
-                    <button class="btn btn-primary">Lưu dữ liệu</button>
-                    <button class="btn btn-danger">Reset</button>
-                </div>
-                <div class="status-section">
-                    <label for="status">Trạng thái</label>
-                    <select id="status" class="form-control">
-                        <option value="draft">Bản nháp</option>
-                        <option value="published">Xuất bản</option>
-                    </select>
-                </div>
-            </div>
         </div>
     </div>
+</div>
