@@ -80,6 +80,19 @@ export class RegisterComponent {
       }
     })
   }
+  togglePasswordVisibility(fieldId: string, event: any): void {
+    const inputField = document.getElementById(fieldId) as HTMLInputElement;
+    const icon = event.target.querySelector('i');
+    if (inputField.type === 'password') {
+      inputField.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      inputField.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
+  }
 }
 
 

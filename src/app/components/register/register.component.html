@@ -27,7 +27,9 @@
                         placeholder="Ít nhất 3 ký tự" 
                         [(ngModel)]="password" 
                         required>
-                    <i class="password-toggle fas fa-eye-slash"></i>
+                        <span class="input-group-text password-toggle" (click)="togglePasswordVisibility('password', $event)">
+                            <i class="fas fa-eye-slash"></i>
+                        </span>
                     <div class="divider-nospace"></div>
                     <p class="text-danger" *ngIf="password.length < 3 && registerForm.form.touched">
                         Mật khẩu phải có ít nhất 3 ký tự
@@ -43,7 +45,9 @@
                         placeholder="Ít nhất 3 ký tự" 
                         [(ngModel)]="retypePassword"
                         (input)=" checkPasswordsMatch()">
-                    <i class="password-toggle fas fa-eye-slash"></i>
+                        <span class="input-group-text password-toggle" (click)="togglePasswordVisibility('retype-password', $event)">
+                            <i class="fas fa-eye-slash"></i>
+                        </span>
                     <div class="divider-nospace"></div>
                     <p class="text-danger" *ngIf="retypePassword.length < 3 && registerForm.form.touched">
                         Mật khẩu phải có ít nhất 3 ký tự

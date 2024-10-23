@@ -26,7 +26,7 @@ export class LoginComponent {
     private userService: UserService,
     private tokenService: TokenService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     // Gọi API lấy danh sách roles và lưu vào biến roles
@@ -59,9 +59,9 @@ export class LoginComponent {
         if (this.rememberMe) {
           this.tokenService.setToken(token);
         }
-        if(response.role_id === 1){
+        if (response.role_id === 1) {
           this.router.navigate(['/user/home-user']);
-        }       
+        }
       },
       complete: () => {
         debugger;
@@ -71,5 +71,18 @@ export class LoginComponent {
         alert(error.error.message);
       }
     });
+  }
+  togglePasswordVisibility(fieldId: string, event: any): void {
+    const inputField = document.getElementById(fieldId) as HTMLInputElement;
+    const icon = event.target;
+    if (inputField.type === 'password') {
+      inputField.type = 'text';
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    } else {
+      inputField.type = 'password';
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    }
   }
 }
