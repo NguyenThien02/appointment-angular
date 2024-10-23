@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 import { LoginDTO } from "../dtos/login.dto";
 import { UserResponse } from "../responses/users/user.responses";
 import { EditUserDTO } from "../dtos/editUser.dto";
+import { PassWordDTO } from "../dtos/passWord.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class UserService {
   private apiLogin = `${environment.apiBaseUrl}/users/login`;
   private apiUserDetail = `${environment.apiBaseUrl}/users/details`;
   private apiEdit = `${environment.apiBaseUrl}/users`;
+  private apiUpdatePassword = `${environment.apiBaseUrl}/users/updatePasword`;
 
   constructor(private http: HttpClient) { }
   register(registerDTO: RegisterDTO): Observable<any> {
@@ -65,6 +67,10 @@ export class UserService {
     // const url = `${this.apiEdit}/${id}`;
     debugger;
     return this.http.put(`${this.apiEdit}/${id}`, editUserDTO);
+  }
+  updatePassword(passWordDTO: PassWordDTO, id: number): Observable<any> {
+    debugger;
+    return this.http.put(`${this.apiUpdatePassword}/${id}`, passWordDTO);
   }
 }
 

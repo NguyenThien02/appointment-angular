@@ -4,9 +4,9 @@ header {
 }
 
 .navbar {
-    background-color: rgba(206, 41, 49, 0) !important;
+    background-color: rgba(72, 255, 142, 0.8) !important; /* Nền navbar phù hợp với tông nền */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm một chút bóng để làm nổi bật */
 }
-
 .navbar .container {
     background-color: rgba(0, 0, 0, 0) !important;
 }

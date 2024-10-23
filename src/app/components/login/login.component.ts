@@ -60,7 +60,7 @@ export class LoginComponent {
           this.tokenService.setToken(token);
         }
         if(response.role_id === 1){
-          this.router.navigate(['/home-user']);
+          this.router.navigate(['/user/home-user']);
         }       
       },
       complete: () => {

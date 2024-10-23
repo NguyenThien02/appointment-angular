@@ -12,7 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeUserComponent } from './components/user-components/home-user/home-user.component';
 import { EditUserComponent } from './components/user-components/edit-user/edit-user.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { ServicesUserComponent } from './components/user-components/user-service/user-service.component'; 
+import { ServicesUserComponent } from './components/user-components/user-service/user-service.component';
+import { UserPasswordComponent } from './components/user-components/user-password/user-password.component'; 
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ServicesUserComponent } from './components/user-components/user-service
     HomeUserComponent,
     EditUserComponent,
     ServicesUserComponent,
+    UserPasswordComponent,
   ],
   imports: [
     BrowserModule,
