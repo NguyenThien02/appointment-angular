@@ -7,6 +7,7 @@ import { RoleService } from 'src/app/services/role.service';
 import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { UserResponse } from 'src/app/responses/users/user.responses';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent {
   roles: Role[] = [];
   rememberMe: boolean = true;
   selectedRole: Role | undefined;
+  userResponse?: UserResponse;
 
   constructor(
     private roleService: RoleService,
@@ -52,6 +54,7 @@ export class LoginComponent {
       role_id: this.selectedRole?.id ?? 1
     };
     // this.tokenService.removeToken();
+    // localStorage.removeItem('user');
     this.userService.login(loginDTO).subscribe({
       next: (response: LoginResponse) => {
         debugger;
@@ -59,9 +62,27 @@ export class LoginComponent {
         if (this.rememberMe) {
           this.tokenService.setToken(token);
         }
-        if (response.role_id === 1) {
-          this.router.navigate(['/user/home-user']);
-        }
+        this.userService.getUserDetail(token).subscribe({
+          next: (response: any) => {
+            debugger
+            const birthday = new Date(response.birthday);
+            const formattedBirthday = `${('0' + birthday.getDate()).slice(-2)}-${('0' + (birthday.getMonth() + 1)).slice(-2)}-${birthday.getFullYear()}`;
+  
+            this.userResponse = {
+              ...response,
+              birthday: formattedBirthday,  // Gán ngày sinh đã định dạng lại
+            }; 
+            this.userService.saveUserResponseToLocalStorage(this.userResponse);
+            this.handleNavigation();
+          },
+          complete: () => {
+            debugger;
+          },
+          error: (error: any) => {
+            debugger;
+            alert(error.error.message);
+          }
+        })
       },
       complete: () => {
         debugger;
@@ -72,6 +93,16 @@ export class LoginComponent {
       }
     });
   }
+
+  handleNavigation() {
+    debugger
+    if (this.userResponse?.role.id === 1) {
+      this.router.navigate(['/user/home-user']);
+    } else if (this.userResponse?.role.id === 3) {
+      this.router.navigate(['/admin/admin-home']);
+    }
+  }
+
   togglePasswordVisibility(fieldId: string, event: any): void {
     const inputField = document.getElementById(fieldId) as HTMLInputElement;
     const icon = event.target;

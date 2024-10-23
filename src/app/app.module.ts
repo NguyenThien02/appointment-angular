@@ -13,21 +13,25 @@ import { HomeUserComponent } from './components/user-components/home-user/home-u
 import { EditUserComponent } from './components/user-components/edit-user/edit-user.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ServicesUserComponent } from './components/user-components/user-service/user-service.component';
-import { UserPasswordComponent } from './components/user-components/user-password/user-password.component'; 
-
-
+import { UserPasswordComponent } from './components/user-components/user-password/user-password.component';
+import { AdminHomeComponent } from './components/admin-components/admin-home/admin-home.component';
+import { AdminServiceComponent } from './components/admin-components/admin-service/admin-service.component';
+import { AdminEditComponent } from './components/admin-components/admin-edit/admin-edit.component';
 @NgModule({
   declarations: [
+    AppComponent,
     RegisterComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    AppComponent,
     HomeUserComponent,
     EditUserComponent,
     ServicesUserComponent,
     UserPasswordComponent,
+    AdminHomeComponent,
+    AdminServiceComponent,
+    AdminEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,26 +5,25 @@ import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-services-user',
-  templateUrl: './user-service.component.html',
-  styleUrls: ['./user-service.component.scss']
+  selector: 'app-admin-home',
+  templateUrl: './admin-home.component.html',
+  styleUrls: ['./admin-home.component.scss']
 })
-export class ServicesUserComponent implements OnInit {
-  
+export class AdminHomeComponent implements OnInit{
   userResponse?: UserResponse;
 
   constructor(
     private userService: UserService,
     private tokenService: TokenService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.userResponse = this.userService.getUserResponseFromLocalStorage();
   }
 
   isActive(route: string): boolean {
-    return this.router.url.includes(route); // Sử dụng Router để kiểm tra route
+    return window.location.pathname.includes(route);
   }
   confirmLogout() {
     const confirmed = confirm('Bạn có chắc chắn muốn đăng xuất không?');
@@ -32,9 +31,8 @@ export class ServicesUserComponent implements OnInit {
       this.outlog();
     }
   }
-  outlog(){
+  outlog() {
     this.tokenService.removeToken();
-    localStorage.removeItem('user')
     this.router.navigate(['/']);
   }
 }
