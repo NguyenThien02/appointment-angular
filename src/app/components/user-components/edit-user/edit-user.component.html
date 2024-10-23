@@ -1,18 +1,7 @@
 <app-header></app-header>
 <div class="container-fluid">
     <div class="container-fluid" *ngIf="userResponse">
-        <div class="sidebar">
-            <div class="profile">
-                <img src="assets/images1.jpeg" alt="avatar" class="profile-img">
-                <p class="profile-name">{{ userResponse.full_name }}</p>
-                <p class="profile-name">id: {{ userResponse.id }}</p>
-            </div>
-            <ul class="menu">
-                <li routerLink="/home-user"><a>Thông tin user</a></li>
-                <li class="active"><a  style="font-weight: bold;">Chỉnh sửa thông tin user</a></li>
-                <li><a href="#">Thông tin lịch khám</a></li>
-            </ul>
-        </div>
+        <app-services-user></app-services-user>
         <div class="main-content">
             <div class="form-section">
                 <h2 class="section-title">Chỉnh sửa thông tin người dùng</h2>

@@ -11,7 +11,8 @@ import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeUserComponent } from './components/user-components/home-user/home-user.component';
 import { EditUserComponent } from './components/user-components/edit-user/edit-user.component';
-import { TokenInterceptor } from './interceptors/token.interceptor'; 
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ServicesUserComponent } from './components/user-components/user-service/user-service.component'; 
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     AppComponent,
     HomeUserComponent,
     EditUserComponent,
+    ServicesUserComponent,
   ],
   imports: [
     BrowserModule,

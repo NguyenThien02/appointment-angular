@@ -51,7 +51,7 @@ export class LoginComponent {
       password: this.password,
       role_id: this.selectedRole?.id ?? 1
     };
-    this.tokenService.removeToken();
+    // this.tokenService.removeToken();
     this.userService.login(loginDTO).subscribe({
       next: (response: LoginResponse) => {
         debugger;
