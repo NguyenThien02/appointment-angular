@@ -11,12 +11,15 @@ export class DoctorService {
 
   constructor(private http: HttpClient) { }
 
-  getAllDoctors(page: number, limit: number) {
+  getAllDoctors(page: number, limit: number, selectedSpecialtyId: number) {
+    debugger
     const params = new HttpParams()
       .set('page', page.toString())
-      .set('limit', limit.toString());
+      .set('limit', limit.toString())
+      .set('specialty_id', selectedSpecialtyId);
     return this.http.get<any[]>(this.apiGetAll, { params });
   }
+
   deleteDoctorById(id: number){
     const url = `${this.apiDeleteById}/${id}`; 
     return this.http.delete<any>(url);

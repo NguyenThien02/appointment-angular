@@ -29,7 +29,7 @@ export class AdminDoctorManagementComponent {
   }
 
   getAllDoctors(page: number, limit: number){
-    this.doctorService.getAllDoctors(page, limit).subscribe({
+    this.doctorService.getAllDoctors(page, limit,0).subscribe({
         next: (response: any) =>{
           debugger
           this.listDoctors = response.listDoctors;

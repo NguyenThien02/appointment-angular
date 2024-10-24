@@ -19,7 +19,7 @@ import { AdminServiceComponent } from './components/admin-components/admin-servi
 import { AdminEditComponent } from './components/admin-components/admin-edit/admin-edit.component';
 import { AdminUserManagementComponent } from './components/admin-components/admin-user-management/admin-user-management.component';
 import { AdminDoctorManagementComponent } from './components/admin-components/admin-doctor-management/admin-doctor-management.component';
-import { ListDoctorComponent } from './list-doctor/list-doctor.component';
+import { ListDoctorComponent } from './components/list-doctor/list-doctor.component';
 @NgModule({
   declarations: [
     AppComponent,
