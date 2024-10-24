@@ -17,6 +17,7 @@ import { UserPasswordComponent } from './components/user-components/user-passwor
 import { AdminHomeComponent } from './components/admin-components/admin-home/admin-home.component';
 import { AdminServiceComponent } from './components/admin-components/admin-service/admin-service.component';
 import { AdminEditComponent } from './components/admin-components/admin-edit/admin-edit.component';
+import { AdminUserManagementComponent } from './components/admin-components/admin-user-management/admin-user-management.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { AdminEditComponent } from './components/admin-components/admin-edit/adm
     AdminHomeComponent,
     AdminServiceComponent,
     AdminEditComponent,
+    AdminUserManagementComponent,
   ],
   imports: [
     BrowserModule,

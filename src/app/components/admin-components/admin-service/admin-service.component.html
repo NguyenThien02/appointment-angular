@@ -11,7 +11,8 @@
         <li [class.active]="isActive('admin-edit')">
             <a routerLink="/admin/admin-edit">Chỉnh sửa thông tin admin</a>
         </li>
-        <li><a href="#">quản lý user</a>
+        <li [class.active]="isActive('admin-user-management')">
+            <a routerLink="/admin/admin-user-management">Quản lý user</a>
         </li>
         <li class="logout" (click)="confirmLogout()"> 
             <a href="javascript:void(0)">Đăng xuất</a>

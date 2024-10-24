@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../environments/environment";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { RegisterDTO } from "../dtos/register.dto";
 import { Observable } from "rxjs";
 import { LoginDTO } from "../dtos/login.dto";
@@ -18,6 +18,7 @@ export class UserService {
   private apiUserDetail = `${environment.apiBaseUrl}/users/details`;
   private apiEdit = `${environment.apiBaseUrl}/users`;
   private apiUpdatePassword = `${environment.apiBaseUrl}/users/updatePasword`;
+  private apiGetAll = `${environment.apiBaseUrl}/users`;
 
   constructor(private http: HttpClient) { }
   register(registerDTO: RegisterDTO): Observable<any> {
@@ -71,6 +72,12 @@ export class UserService {
   updatePassword(passWordDTO: PassWordDTO, id: number): Observable<any> {
     debugger;
     return this.http.put(`${this.apiUpdatePassword}/${id}`, passWordDTO);
+  }
+  getAllUser(page: number, limit: number) {
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
+    return this.http.get<any[]>(this.apiGetAll, { params });
   }
 }
 

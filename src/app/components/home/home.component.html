@@ -31,21 +31,9 @@
         </div>
     </div>
 </div>
-
-<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item" [class.disabled]="currentPage === 0">
-        <a class="page-link" (click)="changePage(currentPage - 1)" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li *ngFor="let page of pages" class="page-item" [class.active]="page === currentPage">
-        <a class="page-link" (click)="changePage(page)">{{ page + 1 }}</a>
-      </li>
-      <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
-        <a class="page-link" (click)="changePage(currentPage + 1)" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <div class="pagination">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 0">Previous</button>
+    <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === currentPage">{{ p + 1
+        }}</button>
+    <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages - 1">Next</button>
+</div>

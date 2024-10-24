@@ -8,6 +8,7 @@ import { EditUserComponent } from "./components/user-components/edit-user/edit-u
 import { UserPasswordComponent } from './components/user-components/user-password/user-password.component'; 
 import { AdminHomeComponent } from "./components/admin-components/admin-home/admin-home.component";
 import { AdminEditComponent } from "./components/admin-components/admin-edit/admin-edit.component";
+import { AdminUserManagementComponent } from "./components/admin-components/admin-user-management/admin-user-management.component";
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path: 'user/edit-user', component:EditUserComponent},
     {path: 'update-password', component:UserPasswordComponent},
     {path: 'admin/admin-home', component: AdminHomeComponent},
-    {path: 'admin/admin-edit', component: AdminEditComponent}
+    {path: 'admin/admin-edit', component: AdminEditComponent},
+    {path: 'admin/admin-user-management', component: AdminUserManagementComponent}
 ];
 
 @NgModule({

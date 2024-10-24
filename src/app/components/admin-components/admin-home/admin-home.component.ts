@@ -14,25 +14,9 @@ export class AdminHomeComponent implements OnInit{
 
   constructor(
     private userService: UserService,
-    private tokenService: TokenService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.userResponse = this.userService.getUserResponseFromLocalStorage();
-  }
-
-  isActive(route: string): boolean {
-    return window.location.pathname.includes(route);
-  }
-  confirmLogout() {
-    const confirmed = confirm('Bạn có chắc chắn muốn đăng xuất không?');
-    if (confirmed) {
-      this.outlog();
-    }
-  }
-  outlog() {
-    this.tokenService.removeToken();
-    this.router.navigate(['/']);
   }
 }

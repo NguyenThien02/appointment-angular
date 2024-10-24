@@ -1,0 +1,94 @@
+.container-fluid {
+    display: flex;
+    height: 100vh;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #ecf0f1;
+}
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+//====================================================
+.container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the table */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table headers */
+.user-table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Table data */
+.user-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternate row background */
+.user-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect */
+.user-table tr:hover {
+    background-color: #ddd;
+}
+// phân trang 
+.pagination {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+    button {
+        padding: 10px 15px;
+        margin: 0 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #002fff; /* Màu nền cho nút */
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #ffffff; /* Màu khi hover */
+        }
+
+        &.active {
+            background-color: #3efd5e; /* Màu nền cho nút hiện tại */
+        }
+
+        &:disabled {
+            background-color: #e0e0e0; /* Màu cho nút bị vô hiệu hóa */
+            color: #a0a0a0; /* Màu chữ cho nút bị vô hiệu hóa */
+            cursor: not-allowed; /* Thay đổi con trỏ khi không cho click */
+        }
+    }
+}
