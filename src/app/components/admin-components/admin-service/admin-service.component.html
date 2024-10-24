@@ -5,14 +5,17 @@
         <p *ngIf="userResponse?.id" class="profile-name">ID: {{ userResponse?.id }}</p> 
     </div>
     <ul class="menu">
-        <li [class.active]="isActive('admin-home')">
-            <a routerLink="/admin/admin-home">Thông tin admin</a>
+        <li [class.active]="isActive('home')">
+            <a routerLink="/admin/home">Thông tin admin</a>
         </li>
-        <li [class.active]="isActive('admin-edit')">
-            <a routerLink="/admin/admin-edit">Chỉnh sửa thông tin admin</a>
+        <li [class.active]="isActive('edit')">
+            <a routerLink="/admin/edit">Chỉnh sửa thông tin admin</a>
         </li>
-        <li [class.active]="isActive('admin-user-management')">
-            <a routerLink="/admin/admin-user-management">Quản lý user</a>
+        <li [class.active]="isActive('user-management')">
+            <a routerLink="/admin/user-management">Quản lý user</a>
+        </li>
+        <li [class.active]="isActive('doctor-management')">
+            <a routerLink="/admin/doctor-management">Quản lý doctor</a>
         </li>
         <li class="logout" (click)="confirmLogout()"> 
             <a href="javascript:void(0)">Đăng xuất</a>

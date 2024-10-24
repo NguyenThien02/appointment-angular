@@ -5,11 +5,11 @@
         <p *ngIf="userResponse?.id" class="profile-name">ID: {{ userResponse?.id }}</p> 
     </div>
     <ul class="menu">
-        <li [class.active]="isActive('home-user')">
-            <a routerLink="/user/home-user">Thông tin user</a>
+        <li [class.active]="isActive('home')">
+            <a routerLink="/user/home">Thông tin user</a>
         </li>
-        <li [class.active]="isActive('edit-user')">
-            <a routerLink="/user/edit-user">Chỉnh sửa thông tin user</a>
+        <li [class.active]="isActive('edit')">
+            <a routerLink="/user/edit">Chỉnh sửa thông tin user</a>
         </li>
         <li><a href="#">Đăng ký lịch khám</a>
         </li>

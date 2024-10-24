@@ -21,6 +21,7 @@ export class UserService {
   private apiGetAll = `${environment.apiBaseUrl}/users`;
 
   constructor(private http: HttpClient) { }
+  
   register(registerDTO: RegisterDTO): Observable<any> {
     return this.http.post(this.apiRegister, registerDTO);
   }

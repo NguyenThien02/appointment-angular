@@ -34,6 +34,6 @@ export class AdminServiceComponent {
   }
   outlog() {
     this.tokenService.removeToken();
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 }

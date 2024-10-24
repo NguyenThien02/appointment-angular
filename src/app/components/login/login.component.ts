@@ -97,9 +97,9 @@ export class LoginComponent {
   handleNavigation() {
     debugger
     if (this.userResponse?.role.id === 1) {
-      this.router.navigate(['/user/home-user']);
+      this.router.navigate(['/user/home']);
     } else if (this.userResponse?.role.id === 3) {
-      this.router.navigate(['/admin/admin-home']);
+      this.router.navigate(['/admin/home']);
     }
   }
 

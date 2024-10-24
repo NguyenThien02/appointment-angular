@@ -4,6 +4,7 @@ import { UserResponse } from 'src/app/responses/users/user.responses';
 import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -26,10 +27,10 @@ export class HeaderComponent implements OnInit { // Implement OnInit
   navigateHome() {
     if(this.checkToken()){
       if (this.userResponse?.role.id === 1) {
-        this.router.navigate(['user/home-user']);
+        this.router.navigate(['user/home']);
       }
       else if (this.userResponse?.role.id === 3) {
-        this.router.navigate(['/admin/admin-home']);
+        this.router.navigate(['/admin/home']);
       }
     }
   }

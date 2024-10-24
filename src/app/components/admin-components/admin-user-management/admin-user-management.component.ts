@@ -29,7 +29,6 @@ export class AdminUserManagementComponent implements OnInit {
     this.userService.getAllUser(page, limit).subscribe({
       next: (response: any) => {
         debugger
-
          this.listUsers = response.listUsers.map((user: UserResponse) => {
           const birthday = new Date(user.birthday);
           const formattedBirthday = `${('0' + birthday.getDate()).slice(-2)}-${('0' + (birthday.getMonth() + 1)).slice(-2)}-${birthday.getFullYear()}`;
