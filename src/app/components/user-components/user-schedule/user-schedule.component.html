@@ -48,13 +48,17 @@
 
                 <div class="form-group">
                     <label>Thời gian khám</label>
-                    <select class="form-control doctor-specialty" [(ngModel)]="timeSlotId">
+                    <select class="form-control doctor-specialty" [(ngModel)]="timeSlotId" (focus)="checkTimeSlot()">
                         <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.id">
                             {{ timeSlot.startEnd }}
                         </option>
                     </select>
                     <div class="divider-nospace"></div>
+                    <div *ngIf="showFullScheduleMessage" class="alert alert-warning">
+                        Lịch đã đầy vui lòng chọn ngày khác.
+                    </div>
                 </div>
+                
                     <button type="submit" class="btn btn-primary" (click)="saveSchedule()">Lưu</button>
                 </div>
         </div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { CheckTimeSlotDTO } from 'src/app/dtos/checkTimeSlot.dto';
 import { ScheduleDTO } from 'src/app/dtos/schedule.dto';
 import { Specialty } from 'src/app/model/Specialty';
 import { TimeSlot } from 'src/app/model/TimeSlot';
@@ -16,6 +18,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-schedule.component.scss']
 })
 export class UserScheduleComponent implements OnInit {
+  @ViewChild('scheduleForm') scheduleForm!: NgForm;
   userResponse?: UserResponse;
   userId: number = 0;
   userName: string = '';
@@ -27,6 +30,7 @@ export class UserScheduleComponent implements OnInit {
   date: Date = new Date();
   timeSlots: TimeSlot[] = [];
   timeSlotId: number = 0;
+  showFullScheduleMessage: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -89,11 +93,11 @@ export class UserScheduleComponent implements OnInit {
     });
   }
 
-  getTimeSlots(){
+  getTimeSlots() {
     this.timeSlotService.getTimeSlots().subscribe({
       next: (response: any) => {
         debugger
-          this.timeSlots = response;
+        this.timeSlots = response;
       },
       complete: () => {
         debugger
@@ -121,17 +125,56 @@ export class UserScheduleComponent implements OnInit {
       "time_slot_id": this.timeSlotId
     }
     this.scheduleService.createSchedule(scheduleDTO).subscribe({
-      next: (response: any) =>{
-          debugger
-          alert('Tạo lịch khám thanh công')
+      next: (response: any) => {
+        debugger
+        alert('Tạo lịch khám thanh công')
       },
       complete: () => {
         debugger
       },
-      error: (error: any) => {   
-        alert(`Cannot register, error: ${error.error}`)      
+      error: (error: any) => {
+        alert(`error: ${error.error}`)
       }
     })
   }
-  
+
+  checkDate() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // Chuyển `this.date` thành đối tượng `Date`
+    const selectedDate = new Date(this.date);
+
+    // So sánh ngày đã chọn với ngày hôm nay
+    if (selectedDate < today) {
+      this.scheduleForm.form.controls['date'].setErrors({ 'invalidDate': true });
+    } else {
+      this.scheduleForm.form.controls['date'].setErrors(null);
+    }
+  }
+
+  checkTimeSlot(){
+    debugger
+    const checkTimeSlotDTO: CheckTimeSlotDTO = {
+      "doctor_id": this.doctorId,
+      "date": this.date
+    }
+    this.scheduleService.checkTimeSlot(checkTimeSlotDTO).subscribe ({
+      next: (response: any) => {
+        if (response == null) {
+          this.showFullScheduleMessage = true; // Hiển thị thông báo
+          this.timeSlots = []; // Xóa danh sách thời gian khám
+        } else {
+          this.showFullScheduleMessage = false; // Tắt thông báo
+          this.timeSlots = response; // Gán danh sách thời gian khám
+        }
+      },
+      complete: () => {
+        debugger
+      },
+      error: (error: any) => {
+        alert(`error: ${error.error}`)
+      }
+    })
+  }
 }
