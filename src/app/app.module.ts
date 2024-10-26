@@ -20,6 +20,7 @@ import { AdminEditComponent } from './components/admin-components/admin-edit/adm
 import { AdminUserManagementComponent } from './components/admin-components/admin-user-management/admin-user-management.component';
 import { AdminDoctorManagementComponent } from './components/admin-components/admin-doctor-management/admin-doctor-management.component';
 import { ListDoctorComponent } from './components/list-doctor/list-doctor.component';
+import { UserScheduleComponent } from './components/user-components/user-schedule/user-schedule.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { ListDoctorComponent } from './components/list-doctor/list-doctor.compon
     AdminUserManagementComponent,
     AdminDoctorManagementComponent,
     ListDoctorComponent,
+    UserScheduleComponent,
   ],
   imports: [
     BrowserModule,

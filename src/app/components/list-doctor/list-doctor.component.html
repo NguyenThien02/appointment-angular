@@ -6,7 +6,7 @@
 </div>   
 
 <div class="search-box">
-    <select class="form-control product-category" [(ngModel)]="selectedSpecialtyId">
+    <select class="form-control doctor-specialty" [(ngModel)]="selectedSpecialtyId">
         <option [value]="0">Tất cả</option>
         <option *ngFor="let specialty of specialties" [value]="specialty.id">
             {{ specialty.name }}
@@ -15,17 +15,20 @@
     <button class="btn btn-primary ml-2" (click)="searchDoctors()">Tìm kiếm</button>
 </div>
 
-<div class="row doctor-row">
-    <div class="col-lg-4 col-md-6" *ngFor="let doctor of listDoctors">
-        <div class="doctor-card">
-            <img [src]="doctor.image_url" alt="Product Image" class="product-image">
-            <h3 class="doctor-name">{{doctor.user_response.full_name}}</h3>
-            <p class="doctor-specialty">Chuyên khoa: {{doctor.specialty.name}}</p>
-            <p class="doctor-experience">Kinh nghiệm: {{doctor.experience}} năm</p>
-            <button class="btn btn-primary">Xem Chi tiết</button>
+<div class="container">
+    <div class="row doctor-row">
+        <div class="col-lg-4 col-md-5 col-sm-6" *ngFor="let doctor of listDoctors">
+            <div class="doctor-card">
+                <img [src]="doctor.image_url" alt="Product Image" class="product-image">
+                <h3 class="doctor-name">{{doctor.user_response.full_name}}</h3>
+                <p class="doctor-specialty">Chuyên khoa: {{doctor.specialty.name}}</p>
+                <p class="doctor-experience">Kinh nghiệm: {{doctor.experience}} năm</p>
+                <button class="btn btn-primary">Xem Chi tiết</button>
+            </div>
         </div>
     </div>
 </div>
+
 <div class="pagination">
     <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
     <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1

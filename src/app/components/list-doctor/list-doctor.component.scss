@@ -12,6 +12,65 @@
     font-size: 1.2rem; /* Kích thước văn bản */
     color: #000000; /* Màu văn bản */
 }
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .doctor-specialty {
+        width: 250px; /* Chiều rộng cụ thể cho thanh tìm kiếm */
+        max-width: 100%; /* Đảm bảo không vượt quá chiều rộng của khung chứa */
+        margin-right: 10px; /* Khoảng cách giữa thanh tìm kiếm và nút */
+    }
+
+    button {
+        padding: 10px 15px;
+    }
+}
+
+.doctor-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.doctor-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+    
+    &:hover {
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .doctor-image {
+        width: 100%; /* Đảm bảo ảnh co lại vừa với khung */
+        height: auto; /* Duy trì tỉ lệ khung hình */
+        object-fit: cover; /* Đảm bảo ảnh không bị bóp méo */
+        border-radius: 5px; /* Bo góc cho ảnh */
+        margin-bottom: 10px;
+    }
+
+    .doctor-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .doctor-specialty,
+    .doctor-experience {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+}
 
 // phân trang 
 .pagination {

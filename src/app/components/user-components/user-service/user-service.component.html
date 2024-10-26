@@ -11,11 +11,15 @@
         <li [class.active]="isActive('edit')">
             <a routerLink="/user/edit">Chỉnh sửa thông tin user</a>
         </li>
-        <li><a href="#">Đăng ký lịch khám</a>
+        
+        <li  [class.active]="isActive('schedule')">
+            <a routerLink="/user/schedule">Đăng ký lịch khám</a>
+        </li>
+        <li  [class.active]="isActive('schedule1')">
+            <a routerLink="/user/schedule">Xem lịch khám</a>
         </li>
         <li class="logout" (click)="confirmLogout()"> 
             <a href="javascript:void(0)">Đăng xuất</a>
         </li>
-        
     </ul>
 </div>

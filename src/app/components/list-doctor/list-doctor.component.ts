@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/app/environments/environment';
-import { specialty } from 'src/app/model/Specialty';
+import { Specialty } from 'src/app/model/Specialty';
 import { DoctorResponse } from 'src/app/responses/Doctors/doctor.response';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { SpecialtyService } from 'src/app/services/specialty.service';
@@ -13,11 +13,11 @@ import { SpecialtyService } from 'src/app/services/specialty.service';
 export class ListDoctorComponent implements OnInit {
   listDoctors: DoctorResponse[] = [];
   page: number = 0;
-  limit: number = 10;
+  limit: number = 12;
   totalPages: number = 0;
   pages: number[] = [];
   selectedSpecialtyId: number = 0;
-  specialties: specialty[] = [];
+  specialties: Specialty[] = [];
 
   constructor(
     private doctorService: DoctorService,
