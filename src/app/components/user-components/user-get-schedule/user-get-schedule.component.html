@@ -15,20 +15,30 @@
                             <th class="sub-header">Bác sĩ khám</th>
                             <th class="sub-header">Ngày khám</th>
                             <th class="sub-header">Thời gian</th>
+                            <th class="sub-header">Chức năng</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let schedule of schedules">
-                            <td>{{schedule.id}}</td>
-                            <td>{{schedule.user_name}}</td>
-                            <td>{{schedule.user_phone}}</td>
-                            <td>{{schedule.doctor_name}}</td>
-                            <td>{{schedule.date}}</td>
-                            <td>{{schedule.time_slot}}</td>
+                          <tr *ngFor="let schedule of schedules; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ schedule.user_name }}</td>
+                            <td>{{ schedule.user_phone }}</td>
+                            <td>{{ schedule.doctor_name }}</td>
+                            <td>{{ schedule.date }}</td>
+                            <td>{{ schedule.time_slot }}</td>
+                            <td class="action-buttons">
+                                <button class="edit-button"  (click)="editSchedule(schedule.id)">Sửa</button>
+                                <button class="delete-button" (click)="deleteSchedule(schedule.id)">Xóa</button>
+                              </td>
                           </tr>
                         </tbody>
-                      </table>
+                    </table>
                 </div>
+            </div>
+            <div class="pagination">
+                <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
+                <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1 }}</button>
+                <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
             </div>
         </div>
     </div>

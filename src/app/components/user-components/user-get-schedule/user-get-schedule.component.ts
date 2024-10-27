@@ -13,6 +13,11 @@ export class UserGetScheduleComponent implements OnInit{
   userResponse?: UserResponse;
   userId: number = 0;
   schedules: ScheduleResponse[] = []
+  scheduleId: number = 0;
+  page: number = 0;
+  limit: number = 8;
+  totalPages: number = 0;
+  pages: number[] = [];
 
   constructor(
     private userService: UserService,
@@ -21,7 +26,7 @@ export class UserGetScheduleComponent implements OnInit{
 
   ngOnInit(): void {
     this.getUserResponse();
-    this.getScheduleByUserId(this.userId);
+    this.getScheduleByUserId(this.userId, this.page, this.limit);
   }
 
   getUserResponse() {
@@ -33,12 +38,12 @@ export class UserGetScheduleComponent implements OnInit{
     }
   }
 
-  getScheduleByUserId(userId: number){
+  getScheduleByUserId(userId: number, page: number, limit: number){
     debugger
-    this.scheduleService.getScheduleByUserId(userId).subscribe({
+    this.scheduleService.getScheduleByUserId(userId, page, limit).subscribe({
       next: (response: any) =>{
         debugger
-        this.schedules = response.map((schedule: ScheduleResponse) => {
+        this.schedules = response.scheduleResponses.map((schedule: ScheduleResponse) => {
           const date = new Date(schedule.date);
           const formattedDate = `${('0' + date.getDate()).slice(-2)}-${('0' + (date.getMonth() + 1)).slice(-2)}-${date.getFullYear()}`;
           return {
@@ -46,6 +51,8 @@ export class UserGetScheduleComponent implements OnInit{
             date: formattedDate  // Add formatted birthday
           };
         });
+        this.totalPages = response.totalPages;
+          this.pages = Array(this.totalPages).fill(0).map((x, i) => i);
       },
       complete: () => {
         debugger;
@@ -55,5 +62,19 @@ export class UserGetScheduleComponent implements OnInit{
         console.error('Error:', error);
       }
     })
+  }
+
+  changePage(page: number) {
+    if (page >= 0 && page < this.totalPages) {
+      this.page = page;
+      this.getScheduleByUserId(this.userId, page, this.limit)
+    }
+  }
+
+  editSchedule(scheduleId: number){
+
+  }
+  deleteSchedule(scheduleId: number){
+
   }
 }

@@ -23,8 +23,11 @@ import { CheckTimeSlotDTO } from "../dtos/checkTimeSlot.dto";
       return this.http.post(this.apiCheckTimeSlot,checkTimeSlotDTO);
     }
 
-    getScheduleByUserId(userId: number){
-      return this.http.get<any[]>(`${this.apiSchedule}/${userId}`);
+    getScheduleByUserId(userId: number, page: number, limit: number){
+      const params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
+      return this.http.get<any[]>(`${this.apiSchedule}/${userId}`, {params});
     }
   }
   

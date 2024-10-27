@@ -49,3 +49,89 @@ body {
     border: 1px solid #ddd;
   }
   
+// phân trang 
+.pagination {
+  display: flex;               /* Sử dụng flexbox */
+  justify-content: center;     /* Căn giữa các phần tử */
+  align-items: center;         /* Căn giữa theo chiều dọc */
+  margin-top: 20px;
+
+  button {
+      padding: 10px 15px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #002fff; /* Màu nền cho nút */
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+          background-color: #ffffff; /* Màu khi hover */
+      }
+
+      &.active {
+          background-color: #3efd5e; /* Màu nền cho nút hiện tại */
+      }
+
+      &:disabled {
+          background-color: #e0e0e0; /* Màu cho nút bị vô hiệu hóa */
+          color: #a0a0a0; /* Màu chữ cho nút bị vô hiệu hóa */
+          cursor: not-allowed; /* Thay đổi con trỏ khi không cho click */
+      }
+  }
+}
+/* Styling for the table */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pricing-table th, .pricing-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.pricing-table th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.pricing-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Action button styling */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Space between buttons */
+}
+
+.edit-button, .delete-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+}
+
+.edit-button {
+  background-color: #4CAF50; /* Green for Edit */
+}
+
+.delete-button {
+  background-color: #e74c3c; /* Red for Delete */
+}
+
+.edit-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.delete-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}

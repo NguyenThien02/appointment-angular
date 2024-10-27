@@ -31,6 +31,7 @@ export class UserScheduleComponent implements OnInit {
   timeSlots: TimeSlot[] = [];
   timeSlotId: number = 0;
   showFullScheduleMessage: boolean = false;
+  showCheckDateMessage: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -147,9 +148,9 @@ export class UserScheduleComponent implements OnInit {
 
     // So sánh ngày đã chọn với ngày hôm nay
     if (selectedDate < today) {
-      this.scheduleForm.form.controls['date'].setErrors({ 'invalidDate': true });
+      this.showCheckDateMessage = true;
     } else {
-      this.scheduleForm.form.controls['date'].setErrors(null);
+      this.showCheckDateMessage = false;
     }
   }
 
