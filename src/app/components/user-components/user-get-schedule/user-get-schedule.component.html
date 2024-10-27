@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid" *ngIf="userResponse">
+        <app-services-user></app-services-user>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Lịch khám của người dùng</h2>
+                <div class="form-group">
+                    <table class="pricing-table">
+                        <thead>
+                          <tr>
+                            <th class="sub-header">STT</th>
+                            <th class="sub-header">Tên người khám</th>
+                            <th class="sub-header">Số điện thoại</th>
+                            <th class="sub-header">Bác sĩ khám</th>
+                            <th class="sub-header">Ngày khám</th>
+                            <th class="sub-header">Thời gian</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let schedule of schedules">
+                            <td>{{schedule.id}}</td>
+                            <td>{{schedule.user_name}}</td>
+                            <td>{{schedule.user_phone}}</td>
+                            <td>{{schedule.doctor_name}}</td>
+                            <td>{{schedule.date}}</td>
+                            <td>{{schedule.time_slot}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
