@@ -19,7 +19,7 @@
     <div class="row doctor-row">
         <div class="col-lg-4 col-md-5 col-sm-6" *ngFor="let doctor of listDoctors">
             <div class="doctor-card">
-                <img [src]="doctor.image_url" alt="Product Image" class="product-image">
+                <img [src]="doctor.image_url" alt="Doctor Image" class="doctor-image">
                 <h3 class="doctor-name">{{doctor.user_response.full_name}}</h3>
                 <p class="doctor-specialty">Chuyên khoa: {{doctor.specialty.name}}</p>
                 <p class="doctor-experience">Kinh nghiệm: {{doctor.experience}} năm</p>

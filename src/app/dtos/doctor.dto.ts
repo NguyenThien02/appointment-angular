@@ -6,7 +6,7 @@ import {
 } from 'class-validator';
 
 export class DoctorDTO {
-    @IsNotEmpty()
+
     user_id: number;
 
     @IsNotEmpty()

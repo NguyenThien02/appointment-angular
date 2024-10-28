@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { environment } from "../environments/environment";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { DoctorDTO } from "../dtos/doctor.dto";
-import { retry } from "rxjs";
+import { Observable, retry } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -35,4 +35,14 @@ export class DoctorService {
     const url = `${this.apiDoctor}/${userId}`; 
     return this.http.get(url)
   }
+
+  updateDoctor(doctorId: number, doctorDTO: DoctorDTO){
+    const url = `${this.apiDoctor}/${doctorId}`; 
+    return this.http.put(url,doctorDTO)
+  }
+
+  uploadDoctorImage(doctorId: number, formData: FormData): Observable<any> {
+    return this.http.put(`${this.apiDoctor}/upload/${doctorId}`, formData);
+  }
+  
 }
