@@ -13,6 +13,8 @@ import { AdminDoctorManagementComponent } from "./components/admin-components/ad
 import { ListDoctorComponent } from "./components/list-doctor/list-doctor.component";
 import { UserScheduleComponent } from "./components/user-components/user-schedule/user-schedule.component";
 import { UserGetScheduleComponent } from "./components/user-components/user-get-schedule/user-get-schedule.component";
+import { DoctorHomeComponent } from "./components/doctor-components/doctor-home/doctor-home.component";
+import { AdminRegisterDoctorComponent } from "./components/admin-components/admin-register-doctor/admin-register-doctor.component";
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -26,9 +28,12 @@ const routes: Routes = [
     {path: 'admin/edit', component: AdminEditComponent},
     {path: 'admin/user-management', component: AdminUserManagementComponent},
     {path: 'admin/doctor-management', component: AdminDoctorManagementComponent},
+    {path: 'admin/doctor-management/register', component: AdminRegisterDoctorComponent},
     {path: 'list-doctor', component: ListDoctorComponent},
     {path: 'user/schedule', component: UserScheduleComponent},
-    {path: 'user/getSchedule', component: UserGetScheduleComponent}
+    {path: 'user/getSchedule', component: UserGetScheduleComponent},
+    {path: 'doctor/home', component: DoctorHomeComponent}
+
     
 ];
 

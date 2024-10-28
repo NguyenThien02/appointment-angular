@@ -19,6 +19,7 @@ export class UserService {
   private apiEdit = `${environment.apiBaseUrl}/users`;
   private apiUpdatePassword = `${environment.apiBaseUrl}/users/updatePasword`;
   private apiGetAll = `${environment.apiBaseUrl}/users`;
+  private apiGetUserDoctor = `${environment.apiBaseUrl}/users/user-doctor`;
 
   constructor(private http: HttpClient) { }
   
@@ -79,6 +80,9 @@ export class UserService {
       .set('page', page.toString())
       .set('limit', limit.toString());
     return this.http.get<any[]>(this.apiGetAll, { params });
+  }
+  getUserResponesDoctor(){
+      return this.http.get<any[]>(this.apiGetUserDoctor);
   }
 }
 

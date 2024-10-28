@@ -22,6 +22,8 @@ import { AdminDoctorManagementComponent } from './components/admin-components/ad
 import { ListDoctorComponent } from './components/list-doctor/list-doctor.component';
 import { UserScheduleComponent } from './components/user-components/user-schedule/user-schedule.component';
 import { UserGetScheduleComponent } from './components/user-components/user-get-schedule/user-get-schedule.component';
+import { DoctorHomeComponent } from './components/doctor-components/doctor-home/doctor-home.component';
+import { AdminRegisterDoctorComponent } from './components/admin-components/admin-register-doctor/admin-register-doctor.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { UserGetScheduleComponent } from './components/user-components/user-get-
     ListDoctorComponent,
     UserScheduleComponent,
     UserGetScheduleComponent,
+    DoctorHomeComponent,
+    AdminRegisterDoctorComponent,
   ],
   imports: [
     BrowserModule,
