@@ -29,6 +29,9 @@ export class HeaderComponent implements OnInit { // Implement OnInit
       if (this.userResponse?.role.id === 1) {
         this.router.navigate(['user/home']);
       }
+      else if (this.userResponse?.role.id === 2) {
+        this.router.navigate(['/doctor/home']);
+      }
       else if (this.userResponse?.role.id === 3) {
         this.router.navigate(['/admin/home']);
       }

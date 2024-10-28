@@ -24,6 +24,8 @@ import { UserScheduleComponent } from './components/user-components/user-schedul
 import { UserGetScheduleComponent } from './components/user-components/user-get-schedule/user-get-schedule.component';
 import { DoctorHomeComponent } from './components/doctor-components/doctor-home/doctor-home.component';
 import { AdminRegisterDoctorComponent } from './components/admin-components/admin-register-doctor/admin-register-doctor.component';
+import { DoctorServiceComponent } from './components/doctor-components/doctor-service/doctor-service.component';
+import { DoctorEditComponent } from './components/doctor-components/doctor-edit/doctor-edit.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { AdminRegisterDoctorComponent } from './components/admin-components/admi
     UserGetScheduleComponent,
     DoctorHomeComponent,
     AdminRegisterDoctorComponent,
+    DoctorServiceComponent,
+    DoctorEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -30,4 +30,9 @@ export class DoctorService {
   registerDoctor(doctorDTO: DoctorDTO){
     return this.http.post(this.apiDoctorRegister, doctorDTO);
   }
+
+  getDoctorByUserId(userId: number){
+    const url = `${this.apiDoctor}/${userId}`; 
+    return this.http.get(url)
+  }
 }
