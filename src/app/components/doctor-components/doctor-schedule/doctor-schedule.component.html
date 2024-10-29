@@ -25,7 +25,7 @@
                             <td>{{ schedule.date }}</td>
                             <td>{{ schedule.time_slot }}</td>
                             <td class="action-buttons">
-                                <button class="edit-button" >Sửa</button>
+                                <button class="edit-button" (click)="nextProfile(schedule.id)">Chuẩn đoán bệnh</button>
                                 <button class="delete-button">Xóa</button>
                               </td>
                           </tr>

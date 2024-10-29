@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DoctorResponse } from 'src/app/responses/Doctors/doctor.response';
 import { ScheduleResponse } from 'src/app/responses/schedule.response';
 import { UserResponse } from 'src/app/responses/users/user.responses';
@@ -21,11 +22,13 @@ export class DoctorScheduleComponent implements OnInit{
   limit: number = 8;
   totalPages: number = 0;
   pages: number[] = [];
+  scheduleId: number = 0;
 
   constructor(
     private userService: UserService,
     private doctorService: DoctorService,
-    private scheduleService: ScheduleService
+    private scheduleService: ScheduleService,
+    private router: Router
   ){
 
   }
@@ -84,4 +87,9 @@ export class DoctorScheduleComponent implements OnInit{
       this.getScheduleByDoctorId(this.userId, page, this.limit)
     }
   }
+  nextProfile(scheduleId: number) {
+    debugger
+    this.router.navigate(['/doctor/schedule/profile', scheduleId]);
+}
+
 }

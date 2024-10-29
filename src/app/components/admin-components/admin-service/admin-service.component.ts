@@ -34,6 +34,7 @@ export class AdminServiceComponent {
   }
   outlog() {
     this.tokenService.removeToken();
+    localStorage.removeItem('user');
     this.router.navigate(['/home']);
   }
 }
