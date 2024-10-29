@@ -66,6 +66,8 @@ export class DoctorServiceComponent {
   }
   outlog() {
     this.tokenService.removeToken();
+    localStorage.removeItem('user');
+    localStorage.removeItem('doctor')
     this.router.navigate(['/home']);
   }
   

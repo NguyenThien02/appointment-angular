@@ -40,6 +40,7 @@ export class DoctorHomeComponent {
         debugger
         response.image_url = `${environment.apiBaseUrl}/doctors/images/${response.image_url}`;
         this.doctorResponse = response;
+        this.doctorService.saveDoctorResponseToLocalStorage(this.doctorResponse);
       },
       complete: () => {
         debugger;
