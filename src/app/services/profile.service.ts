@@ -12,6 +12,6 @@ import { HttpClient } from "@angular/common/http";
     constructor(private http: HttpClient) { }
 
     createProfile(profileDTO: ProfileDTO){
-        return this.http.post(`${this.apiProfile}/doctor`, profileDTO);
+      return this.http.post(`${this.apiProfile}/doctor`, profileDTO);
     }
   }

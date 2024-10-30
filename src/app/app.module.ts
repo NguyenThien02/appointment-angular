@@ -28,6 +28,7 @@ import { DoctorServiceComponent } from './components/doctor-components/doctor-se
 import { DoctorEditComponent } from './components/doctor-components/doctor-edit/doctor-edit.component';
 import { DoctorScheduleComponent } from './components/doctor-components/doctor-schedule/doctor-schedule.component';
 import { DoctorProfileComponent } from './components/doctor-components/doctor-profile/doctor-profile.component';
+import { DoctorAddServiceComponent } from './components/doctor-components/doctor-add-service/doctor-add-service.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DoctorProfileComponent } from './components/doctor-components/doctor-pr
     DoctorEditComponent,
     DoctorScheduleComponent,
     DoctorProfileComponent,
+    DoctorAddServiceComponent,
   ],
   imports: [
     BrowserModule,

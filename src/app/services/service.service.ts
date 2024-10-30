@@ -8,6 +8,7 @@ import { Observable } from "rxjs";
 })
 export class ServiceService {
     private apiGetServices = `${environment.apiBaseUrl}/services`;
+
     constructor(private http: HttpClient) { }
 
     getServices(
@@ -22,5 +23,9 @@ export class ServiceService {
             .set('page', page.toString())
             .set('limit', limit.toString());
     return this.http.get<any[]>(this.apiGetServices, {params});
+    }
+
+    getServicesByIds(selectServiceId: number[]){
+        return this.http.post(`${this.apiGetServices}/getByIds`, selectServiceId);
     }
 }

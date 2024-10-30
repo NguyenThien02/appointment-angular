@@ -1,0 +1,86 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid" *ngIf="userResponse">
+        <app-doctor-service></app-doctor-service>
+        <div class="main-content">
+            <div class="form-section">
+                <div class="breadcrumb">
+                    <a>Schedule / Profile</a> / AddService
+                </div>
+                <h2 class="section-title">Các dịch vụ y tế </h2>
+                <div class="d-flex align-items-center">
+                    <select class="form-control service-category mr-2"
+                            [(ngModel)]="selectedCategoryId">
+                        <option [value]="0">Tất cả</option>
+                        <option *ngFor="let category of categories" [value]="category.id">
+                            {{ category.name }}
+                        </option>
+                    </select>
+                    <button class="btn btn-primary" (click)="searchServices()">Tìm kiếm</button>
+                </div>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th class="sub-header">STT</th>
+                            <th class="sub-header">Tên dịch vụ</th>
+                            <th class="sub-header">Giá dịch vụ</th>
+                            <th class="sub-header">Giá khi có BHYT</th>
+                            <th class="sub-header"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let service of services">
+                            <td>{{ service.id}}</td>
+                            <td>{{ service.name }}</td>
+                            <td>{{ service.price }} VND</td>
+                            <td>{{ service.insurancePrice }} VND</td>
+                            <td class="action-buttons">
+                                <button class="add-button" (click)="addService(service.id)">Thêm</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
+                    <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1 }}</button>
+                    <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
+                </div>
+            </div>
+            <hr class="section-divider">
+            <div class="form-section">
+                <h2 class="section-title">Danh sách dịch vụ y tế đã chọn</h2>
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th class="sub-header">STT</th>
+                            <th class="sub-header">Tên dịch vụ</th>
+                            <th class="sub-header">Giá dịch vụ</th>
+                            <th class="sub-header">Giá khi có BHYT</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let selectService of selectServices">
+                            <td>{{ selectService.id}}</td>
+                            <td>{{ selectService.name }}</td>
+                            <td>{{ selectService.price }} VND</td>
+                            <td>{{ selectService.insurancePrice }} VND</td>
+                            <td class="action-buttons">
+                                <button class="delete-button" (click)="deleteSelectService(selectService.id)">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                 <!-- Hiển thị tổng số tiền -->
+                 <div class="total-amount">
+                    <h3>Tổng số tiền: {{ totalAmount }} VND</h3>
+                    <h3>Tổng số tiền khi có BHYT: {{ totalAmountBHYT }} VND</h3>
+                </div>
+                <button class="add-button">Xác nhận</button>
+            </div>
+            
+        </div>
+    </div>
+
+</div>

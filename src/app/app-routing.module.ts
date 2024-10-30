@@ -18,6 +18,7 @@ import { AdminRegisterDoctorComponent } from "./components/admin-components/admi
 import { DoctorEditComponent } from "./components/doctor-components/doctor-edit/doctor-edit.component";
 import { DoctorScheduleComponent } from "./components/doctor-components/doctor-schedule/doctor-schedule.component";
 import { DoctorProfileComponent } from "./components/doctor-components/doctor-profile/doctor-profile.component";
+import { DoctorAddServiceComponent } from "./components/doctor-components/doctor-add-service/doctor-add-service.component";
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -38,7 +39,8 @@ const routes: Routes = [
     {path: 'doctor/home', component: DoctorHomeComponent},
     {path: 'doctor/edit', component: DoctorEditComponent},
     {path: 'doctor/schedule', component: DoctorScheduleComponent},
-    {path: 'doctor/schedule/profile/:scheduleId', component: DoctorProfileComponent}
+    {path: 'doctor/schedule/profile/:scheduleId', component: DoctorProfileComponent},
+    {path: 'addService/:profileId', component: DoctorAddServiceComponent}
 
     
 ];

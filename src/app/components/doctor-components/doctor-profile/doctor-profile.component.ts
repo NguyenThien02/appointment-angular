@@ -17,12 +17,13 @@ export class DoctorProfileComponent implements OnInit{
   diagnosis: string = "";
   treatment: string = "";
   medications: string = "";
-
+  profileId: number = 4;
 
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private router: Router
   ){}
 
   ngOnInit() {
@@ -58,6 +59,7 @@ export class DoctorProfileComponent implements OnInit{
     this.profileService.createProfile( profileDTO).subscribe ({
       next: (response: any) =>{
         debugger
+        this.profileId = response.id;
         alert('Tạo thành công profile')
       },
       complete: () => {
@@ -65,8 +67,16 @@ export class DoctorProfileComponent implements OnInit{
       },
       error: (error: any) => {
         debugger;
-        console.error('Error:', error);
+        alert(error.error.message);
       }
     })
+  }
+
+  switchToAddService() {
+    if (this.profileId) {
+      this.router.navigate(['/addService', this.profileId]);
+    } else {
+      console.warn('Profile ID không hợp lệ, không thể chuyển đến addService');
+    }
   }
 }
