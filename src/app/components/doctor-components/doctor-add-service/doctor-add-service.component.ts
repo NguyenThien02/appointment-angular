@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProfileDetailDTO } from 'src/app/dtos/profileDetail.dto';
 import { Category } from 'src/app/model/Category';
 import { Service } from 'src/app/model/Service';
 import { UserResponse } from 'src/app/responses/users/user.responses';
 import { AddServiceService } from 'src/app/services/addService.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { ProfileDetailService } from 'src/app/services/profileDetail.service';
 import { ServiceService } from 'src/app/services/service.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -29,12 +31,14 @@ export class DoctorAddServiceComponent implements OnInit {
   selectServices: Service[] = [];
   totalAmount: number = 0;
   totalAmountBHYT: number = 0;
+  scheduleId: number = 0;
   constructor(
     private userService: UserService,
     private categoryService: CategoryService,
     private serviceService: ServiceService,
     private addServiceService: AddServiceService,
     private route: ActivatedRoute,
+    private profileDetailService: ProfileDetailService,
   ) {
 
   }
@@ -43,6 +47,7 @@ export class DoctorAddServiceComponent implements OnInit {
     this.getCategories();
     this.getProfileId();
     this.getSelectService();
+    this.getScheduleId()
     // localStorage.removeItem(this.profileId.toString())
   }
   getProfileId() {
@@ -57,7 +62,7 @@ export class DoctorAddServiceComponent implements OnInit {
 
   getUserResponse() {
     this.userResponse = this.userService.getUserResponseFromLocalStorage();
-    this.getServices(this.page, this.limit, this.keyword, this.selectedCategoryId);
+    this.getAllServices(this.page, this.limit, this.keyword, this.selectedCategoryId);
   }
   getCategories() {
     debugger
@@ -73,7 +78,7 @@ export class DoctorAddServiceComponent implements OnInit {
     });
   }
 
-  getServices(page: number, limit: number, keyword: string, selectedCategoryId: number) {
+  getAllServices(page: number, limit: number, keyword: string, selectedCategoryId: number) {
     debugger
     this.serviceService.getServices(page, limit, keyword, selectedCategoryId).subscribe({
       next: (response: any) => {
@@ -92,12 +97,12 @@ export class DoctorAddServiceComponent implements OnInit {
   changePage(page: number) {
     if (page >= 0 && page < this.totalPages) {
       this.page = page;
-      this.getServices(this.page, this.limit, this.keyword, this.selectedCategoryId);
+      this.getAllServices(this.page, this.limit, this.keyword, this.selectedCategoryId);
     }
   }
 
   searchServices() {
-    this.getServices(this.page, this.limit, this.keyword, this.selectedCategoryId);
+    this.getAllServices(this.page, this.limit, this.keyword, this.selectedCategoryId);
   }
 
   addService(serviceId: number) {
@@ -111,6 +116,7 @@ export class DoctorAddServiceComponent implements OnInit {
       alert('Dịch vụ này đã được chọn')
     }
   }
+
   getSelectService() {
     debugger
     const addToProfileId = 'profileId:' + this.profileId.toString();
@@ -144,5 +150,25 @@ export class DoctorAddServiceComponent implements OnInit {
       localStorage.setItem(addToProfileId, JSON.stringify(serviceIds));
       this.getSelectService();
     }
+  }
+
+
+  saveAddService(){
+    debugger
+    const profileDetailDTO: ProfileDetailDTO = {
+      profile_id: this.profileId, 
+      service_ids: this.selectServiceIds
+    }
+    this.profileDetailService.createProfileDetails(profileDetailDTO).subscribe({
+      next: (response: any) =>{
+        debugger
+        alert('Tạo thông tin hồ sơ thành công');
+      },
+        error: (error) => console.error('Lỗi khi tạo thông tin hồ sơ', error)
+    })
+  }
+
+  getScheduleId(){
+    
   }
 }

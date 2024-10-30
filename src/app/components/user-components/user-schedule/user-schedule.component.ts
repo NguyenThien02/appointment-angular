@@ -162,11 +162,10 @@ export class UserScheduleComponent implements OnInit {
     }
     this.scheduleService.checkTimeSlot(checkTimeSlotDTO).subscribe ({
       next: (response: any) => {
+        debugger
         if (response == null) {
           this.showFullScheduleMessage = true; // Hiển thị thông báo
-          this.timeSlots = []; // Xóa danh sách thời gian khám
         } else {
-          this.showFullScheduleMessage = false; // Tắt thông báo
           this.timeSlots = response; // Gán danh sách thời gian khám
         }
       },

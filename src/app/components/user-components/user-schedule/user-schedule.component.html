@@ -42,13 +42,14 @@
                         class="form-control" 
                         id="date" 
                         name="date" 
-                        [(ngModel)]="date">
+                        [(ngModel)]="date"
+                        (change)="checkTimeSlot()">
                     <div class="divider-nospace"></div>
                 </div>
 
                 <div class="form-group">
                     <label>Thời gian khám</label>
-                    <select class="form-control doctor-specialty" [(ngModel)]="timeSlotId" (focus)="checkTimeSlot()">
+                    <select class="form-control doctor-specialty" [(ngModel)]="timeSlotId" >
                         <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.id">
                             {{ timeSlot.startEnd }}
                         </option>

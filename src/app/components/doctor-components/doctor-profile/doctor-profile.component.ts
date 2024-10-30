@@ -17,7 +17,7 @@ export class DoctorProfileComponent implements OnInit{
   diagnosis: string = "";
   treatment: string = "";
   medications: string = "";
-  profileId: number = 4;
+  profileId: number = 1;
 
   constructor(
     private userService: UserService,
@@ -72,7 +72,7 @@ export class DoctorProfileComponent implements OnInit{
     })
   }
 
-  switchToAddService() {
+  RouterToAddService() {
     if (this.profileId) {
       this.router.navigate(['/addService', this.profileId]);
     } else {
