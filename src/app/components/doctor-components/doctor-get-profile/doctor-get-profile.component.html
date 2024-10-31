@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid" *ngIf="userResponse">
+        <app-doctor-service></app-doctor-service>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Danh sách bệnh án</h2>
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th class="sub-header">ID</th>
+                            <th class="sub-header">Tên người khám</th>
+                            <th class="sub-header">Số điện thoại</th>
+                            <th class="sub-header">Ngày khám</th>
+                            <th class="sub-header">Thời gian khám</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let profile of profiles">
+                            <td>{{ profile.id}}</td>
+                            <td>{{ profile.schedule.userName}}</td>
+                            <td>{{ profile.schedule.userPhone}}</td>
+                            <td>{{ profile.schedule.date}}</td>
+                            <td>{{ profile.schedule.timeSlot.startEnd}}</td>
+                            <td>
+                                <button class="detail-button" [routerLink]="['/doctor/getProfile/getDetailProfile', profile.id]">Chi tiết</button>
+                                <button class="edit-button">Chỉnh sửa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

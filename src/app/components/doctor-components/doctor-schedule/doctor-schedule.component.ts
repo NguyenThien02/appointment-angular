@@ -49,7 +49,6 @@ export class DoctorScheduleComponent implements OnInit{
   getDoctorResponse(){
     this.doctorResponse = this.doctorService.getDoctorResponseFromLocalStorage();
     if(this.doctorResponse){
-      debugger
       this.doctorId = this.doctorResponse.id;
     }else {
       console.error('No doctor response found');
@@ -70,7 +69,7 @@ export class DoctorScheduleComponent implements OnInit{
           };
         });
         this.totalPages = response.totalPages;
-          this.pages = Array(this.totalPages).fill(0).map((x, i) => i);
+        this.pages = Array(this.totalPages).fill(0).map((x, i) => i);
       },
       complete: () => {
         debugger;
@@ -83,13 +82,14 @@ export class DoctorScheduleComponent implements OnInit{
   }
   changePage(page: number) {
     if (page >= 0 && page < this.totalPages) {
+      debugger
       this.page = page;
-      this.getScheduleByDoctorId(this.userId, page, this.limit)
+      this.getScheduleByDoctorId(this.doctorId, page, this.limit)
     }
   }
   nextProfile(scheduleId: number) {
     debugger
-    this.router.navigate(['/doctor/schedule/profile', scheduleId]);
+    this.router.navigate(['/doctor/schedule/createProfile', scheduleId]);
 }
 
 }

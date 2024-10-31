@@ -17,8 +17,12 @@ import { DoctorHomeComponent } from "./components/doctor-components/doctor-home/
 import { AdminRegisterDoctorComponent } from "./components/admin-components/admin-register-doctor/admin-register-doctor.component";
 import { DoctorEditComponent } from "./components/doctor-components/doctor-edit/doctor-edit.component";
 import { DoctorScheduleComponent } from "./components/doctor-components/doctor-schedule/doctor-schedule.component";
-import { DoctorProfileComponent } from "./components/doctor-components/doctor-profile/doctor-profile.component";
+import { DoctorCreateProfileComponent } from "./components/doctor-components/doctor-create-profile/doctor-createProfile.component";
 import { DoctorAddServiceComponent } from "./components/doctor-components/doctor-add-service/doctor-add-service.component";
+import { DoctorUpdateProfileComponent } from './components/doctor-components/doctor-update-profile/doctor-update-profile.component';
+import { DoctorGetProfileComponent } from "./components/doctor-components/doctor-get-profile/doctor-get-profile.component";
+import { DoctorGetDetailProfileComponent } from "./components/doctor-components/doctor-get-detail-profile/doctor-get-detail-profile.component";
+
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -39,8 +43,11 @@ const routes: Routes = [
     {path: 'doctor/home', component: DoctorHomeComponent},
     {path: 'doctor/edit', component: DoctorEditComponent},
     {path: 'doctor/schedule', component: DoctorScheduleComponent},
-    {path: 'doctor/schedule/profile/:scheduleId', component: DoctorProfileComponent},
-    {path: 'addService/:profileId', component: DoctorAddServiceComponent}
+    {path: 'doctor/schedule/createProfile/:scheduleId', component: DoctorCreateProfileComponent},
+    {path: 'addService/:profileId', component: DoctorAddServiceComponent},
+    {path: 'doctor/updateProfile', component: DoctorUpdateProfileComponent},
+    {path: 'doctor/getProfile', component: DoctorGetProfileComponent},
+    {path: 'doctor/getProfile/getDetailProfile/:profileId', component: DoctorGetDetailProfileComponent}
 
     
 ];

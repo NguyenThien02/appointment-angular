@@ -41,12 +41,8 @@ export class DoctorServiceComponent {
   getDoctorResponse(){
     this.doctorService.getDoctorByUserId(this.userId).subscribe({
       next: (response: any) => {
-        debugger
         response.image_url = `${environment.apiBaseUrl}/doctors/images/${response.image_url}`;
         this.doctorResponse = response;
-      },
-      complete: () => {
-        debugger;
       },
       error: (error: any) => {
         debugger;

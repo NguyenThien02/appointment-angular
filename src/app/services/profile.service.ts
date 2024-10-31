@@ -14,4 +14,16 @@ import { HttpClient } from "@angular/common/http";
     createProfile(profileDTO: ProfileDTO){
       return this.http.post(`${this.apiProfile}/doctor`, profileDTO);
     }
+
+    getProfileById(profileId: number){
+      return this.http.get(`${this.apiProfile}/${profileId}`);
+    }
+
+    getProfilesByDoctorId(doctorId: number){
+      return this.http.get(`${this.apiProfile}/doctor/${doctorId}`);
+    }
+
+    deleteProfileById(profileId: number){
+      return this.http.delete(`${this.apiProfile}/${profileId}`);
+    }
   }

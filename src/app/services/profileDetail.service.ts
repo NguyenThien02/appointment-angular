@@ -15,4 +15,8 @@ import { ProfileDetailDTO } from "../dtos/profileDetail.dto";
       
       return this.http.post(this.apiProfileDetail, profileDetailDTO);
     }
+
+    getServicesByProfileId(profileId: number){
+      return this.http.get(`${this.apiProfileDetail}/${profileId}`);
+    }
   }

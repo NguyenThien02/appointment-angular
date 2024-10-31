@@ -102,3 +102,56 @@
 .profile-button{
   background-color: #3ce74a;
 }
+
+.pricing-table {
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+}
+.pricing-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.pricing-table th, .pricing-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.pricing-table th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.pricing-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.total-amount {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e0f7fa;
+  border: 1px solid #b2ebf2;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #00796b;
+
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #004d40;
+  }
+}
+.add-button {
+  background-color: #4CAF50; /* Green for Edit */
+}

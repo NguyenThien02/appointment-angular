@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileDetailDTO } from 'src/app/dtos/profileDetail.dto';
 import { Category } from 'src/app/model/Category';
+import { Profile } from 'src/app/model/Profile';
 import { Service } from 'src/app/model/Service';
 import { UserResponse } from 'src/app/responses/users/user.responses';
 import { AddServiceService } from 'src/app/services/addService.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { ProfileService } from 'src/app/services/profile.service';
 import { ProfileDetailService } from 'src/app/services/profileDetail.service';
 import { ServiceService } from 'src/app/services/service.service';
 import { UserService } from 'src/app/services/user.service';
@@ -31,7 +33,7 @@ export class DoctorAddServiceComponent implements OnInit {
   selectServices: Service[] = [];
   totalAmount: number = 0;
   totalAmountBHYT: number = 0;
-  scheduleId: number = 0;
+  profile?: Profile;
   constructor(
     private userService: UserService,
     private categoryService: CategoryService,
@@ -39,6 +41,8 @@ export class DoctorAddServiceComponent implements OnInit {
     private addServiceService: AddServiceService,
     private route: ActivatedRoute,
     private profileDetailService: ProfileDetailService,
+    private profileService: ProfileService,
+    private router: Router
   ) {
 
   }
@@ -47,9 +51,9 @@ export class DoctorAddServiceComponent implements OnInit {
     this.getCategories();
     this.getProfileId();
     this.getSelectService();
-    this.getScheduleId()
     // localStorage.removeItem(this.profileId.toString())
   }
+
   getProfileId() {
     const profileIdParam = this.route.snapshot.paramMap.get('profileId');
     if (profileIdParam !== null) {
@@ -65,7 +69,6 @@ export class DoctorAddServiceComponent implements OnInit {
     this.getAllServices(this.page, this.limit, this.keyword, this.selectedCategoryId);
   }
   getCategories() {
-    debugger
     this.categoryService.getCategories().subscribe({
       next: (categories: Category[]) => {
         this.categories = categories;
@@ -79,7 +82,6 @@ export class DoctorAddServiceComponent implements OnInit {
   }
 
   getAllServices(page: number, limit: number, keyword: string, selectedCategoryId: number) {
-    debugger
     this.serviceService.getServices(page, limit, keyword, selectedCategoryId).subscribe({
       next: (response: any) => {
         this.services = response.services;
@@ -118,7 +120,6 @@ export class DoctorAddServiceComponent implements OnInit {
   }
 
   getSelectService() {
-    debugger
     const addToProfileId = 'profileId:' + this.profileId.toString();
     const storedData = localStorage.getItem(addToProfileId);
 
@@ -131,7 +132,6 @@ export class DoctorAddServiceComponent implements OnInit {
         this.selectServices = response;
       },
       complete: () => {
-        debugger;
         this.totalAmount = this.selectServices.reduce((sum, service) => sum + service.price, 0);
         this.totalAmountBHYT = this.selectServices.reduce((sum, service) => sum + service.insurancePrice, 0);
       },
@@ -140,6 +140,7 @@ export class DoctorAddServiceComponent implements OnInit {
       }
     })
   }
+  
   deleteSelectService(serviceId: number) {
     const confirmed = confirm('Bạn có chắc chắn muốn xóa dịch vụ này');
     if(confirmed){
@@ -152,7 +153,6 @@ export class DoctorAddServiceComponent implements OnInit {
     }
   }
 
-
   saveAddService(){
     debugger
     const profileDetailDTO: ProfileDetailDTO = {
@@ -162,13 +162,23 @@ export class DoctorAddServiceComponent implements OnInit {
     this.profileDetailService.createProfileDetails(profileDetailDTO).subscribe({
       next: (response: any) =>{
         debugger
-        alert('Tạo thông tin hồ sơ thành công');
+        this.profile = response;
+        if (this.profile?.id) {
+          localStorage.removeItem(this.profile?.id.toString());
+          this.router.navigate(['/doctor/getProfile/getDetailProfile/', this.profile?.id]);
+        } else {
+          alert('Không tìm thấy profileId này');
+        }
       },
         error: (error) => console.error('Lỗi khi tạo thông tin hồ sơ', error)
     })
   }
-
-  getScheduleId(){
-    
+  routerProfileDetail(){
+    if (this.profileId) {
+      localStorage.removeItem(this.profileId.toString());
+      this.router.navigate(['/doctor/getProfile/getDetailProfile/', this.profileId]);
+    } else {
+      alert('Không tìm thấy profileId này');
+    }
   }
 }

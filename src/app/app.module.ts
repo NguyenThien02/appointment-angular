@@ -27,8 +27,11 @@ import { AdminRegisterDoctorComponent } from './components/admin-components/admi
 import { DoctorServiceComponent } from './components/doctor-components/doctor-service/doctor-service.component';
 import { DoctorEditComponent } from './components/doctor-components/doctor-edit/doctor-edit.component';
 import { DoctorScheduleComponent } from './components/doctor-components/doctor-schedule/doctor-schedule.component';
-import { DoctorProfileComponent } from './components/doctor-components/doctor-profile/doctor-profile.component';
+import { DoctorCreateProfileComponent } from './components/doctor-components/doctor-create-profile/doctor-createProfile.component';
 import { DoctorAddServiceComponent } from './components/doctor-components/doctor-add-service/doctor-add-service.component';
+import { DoctorUpdateProfileComponent } from './components/doctor-components/doctor-update-profile/doctor-update-profile.component';
+import { DoctorGetProfileComponent } from './components/doctor-components/doctor-get-profile/doctor-get-profile.component';
+import { DoctorGetDetailProfileComponent } from './components/doctor-components/doctor-get-detail-profile/doctor-get-detail-profile.component';
 
 @NgModule({
   declarations: [
@@ -55,8 +58,11 @@ import { DoctorAddServiceComponent } from './components/doctor-components/doctor
     DoctorServiceComponent,
     DoctorEditComponent,
     DoctorScheduleComponent,
-    DoctorProfileComponent,
+    DoctorCreateProfileComponent,
     DoctorAddServiceComponent,
+    DoctorUpdateProfileComponent,
+    DoctorGetProfileComponent,
+    DoctorGetDetailProfileComponent,
   ],
   imports: [
     BrowserModule,
