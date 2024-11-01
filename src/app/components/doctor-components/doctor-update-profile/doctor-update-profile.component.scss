@@ -1,0 +1,135 @@
+.container-fluid {
+    display: flex;
+    height: 100vh;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #ecf0f1;
+    top: 0;
+  width: 250px; /* Điều chỉnh tùy ý */
+  z-index: 1000;
+  background-color:  #ecf0f1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao viewport */
+}
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+// form hiển thị
+.form-group {
+    margin-bottom: 10px; // Giảm khoảng cách giữa các nhóm form
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 3px; // Giảm khoảng cách bên dưới nhãn
+}
+
+.profile-detail {
+    font-size: 18px;
+    color: #555;
+    background-color: #fff;
+    padding: 6px 10px; // Giảm khoảng cách bên trong
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); // Giảm độ đổ bóng
+    margin-top: 3px; // Giảm khoảng cách phía trên của chi tiết
+}
+
+//ngăn cách 
+.section-divider {
+    border: none;
+    height: 5px;                // Độ dày của đường kẻ
+    background-color: #4c00ff;     // Màu sắc của đường kẻ
+    margin: 20px 0;             // Khoảng cách trên và dưới đường kẻ
+}
+// bảng
+
+.pricing-table {
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+  }
+  .pricing-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .pricing-table th, .pricing-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .pricing-table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .pricing-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  //tổng tiền 
+
+  .total-amount {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #00796b;
+  
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #004d40;
+    }
+  }  
+
+  //nút bấm 
+  .editAddService-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1100ff; /* Nút màu xanh lá */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Khoảng cách phía trên nút bấm */
+}
+
+.editAddService-button:hover {
+    background-color: #2587f7; /* Màu tối hơn khi di chuột */
+}

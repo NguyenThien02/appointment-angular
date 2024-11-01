@@ -25,7 +25,7 @@
                             <td>{{ profile.schedule.timeSlot.startEnd}}</td>
                             <td>
                                 <button class="detail-button" [routerLink]="['/doctor/getProfile/getDetailProfile', profile.id]">Chi tiết</button>
-                                <button class="edit-button">Chỉnh sửa</button>
+                                <button class="edit-button" [routerLink]="['/doctor/getProfile/updateProfile', profile.id]">Chỉnh sửa</button>
                             </td>
                         </tr>
                     </tbody>

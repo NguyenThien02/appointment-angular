@@ -45,7 +45,7 @@ const routes: Routes = [
     {path: 'doctor/schedule', component: DoctorScheduleComponent},
     {path: 'doctor/schedule/createProfile/:scheduleId', component: DoctorCreateProfileComponent},
     {path: 'addService/:profileId', component: DoctorAddServiceComponent},
-    {path: 'doctor/updateProfile', component: DoctorUpdateProfileComponent},
+    {path: 'doctor/getProfile/updateProfile/:profileId', component: DoctorUpdateProfileComponent},
     {path: 'doctor/getProfile', component: DoctorGetProfileComponent},
     {path: 'doctor/getProfile/getDetailProfile/:profileId', component: DoctorGetDetailProfileComponent}
 

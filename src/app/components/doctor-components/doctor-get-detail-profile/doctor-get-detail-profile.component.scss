@@ -85,3 +85,21 @@
       color: #004d40;
     }
   }  
+  //nút bấm 
+  .confirm-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745; /* Nút màu xanh lá */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Khoảng cách phía trên nút bấm */
+}
+
+.confirm-button:hover {
+    background-color: #218838; /* Màu tối hơn khi di chuột */
+}

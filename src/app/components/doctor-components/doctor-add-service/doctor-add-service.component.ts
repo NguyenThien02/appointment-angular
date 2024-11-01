@@ -25,7 +25,7 @@ export class DoctorAddServiceComponent implements OnInit {
   selectedCategoryId: number = 0;
   keyword: string = "";
   page: number = 0;
-  limit: number = 12;
+  limit: number = 10;
   totalPages: number = 0;
   pages: number[] = [];
   serviceId: number = 0
@@ -164,21 +164,25 @@ export class DoctorAddServiceComponent implements OnInit {
         debugger
         this.profile = response;
         if (this.profile?.id) {
-          localStorage.removeItem(this.profile?.id.toString());
+          const addToProfileId = 'profileId:' + this.profile?.id.toString();
+          localStorage.removeItem(addToProfileId);
           this.router.navigate(['/doctor/getProfile/getDetailProfile/', this.profile?.id]);
         } else {
           alert('Không tìm thấy profileId này');
         }
       },
-        error: (error) => console.error('Lỗi khi tạo thông tin hồ sơ', error)
+      error: (error: any) => {
+        debugger;
+        alert(error.error.message);
+      }
     })
   }
-  routerProfileDetail(){
-    if (this.profileId) {
-      localStorage.removeItem(this.profileId.toString());
-      this.router.navigate(['/doctor/getProfile/getDetailProfile/', this.profileId]);
-    } else {
-      alert('Không tìm thấy profileId này');
-    }
-  }
+  // routerProfileDetail(){
+  //   if (this.profileId) {
+  //     localStorage.removeItem(this.profileId.toString());
+  //     this.router.navigate(['/doctor/getProfile/getDetailProfile/', this.profileId]);
+  //   } else {
+  //     alert('Không tìm thấy profileId này');
+  //   }
+  // }
 }
