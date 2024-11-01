@@ -22,6 +22,7 @@ import { DoctorAddServiceComponent } from "./components/doctor-components/doctor
 import { DoctorUpdateProfileComponent } from './components/doctor-components/doctor-update-profile/doctor-update-profile.component';
 import { DoctorGetProfileComponent } from "./components/doctor-components/doctor-get-profile/doctor-get-profile.component";
 import { DoctorGetDetailProfileComponent } from "./components/doctor-components/doctor-get-detail-profile/doctor-get-detail-profile.component";
+import { DoctorDetailComponent } from "./components/doctor-detail/doctor-detail.component";
 
 
 const routes: Routes = [
@@ -47,7 +48,8 @@ const routes: Routes = [
     {path: 'addService/:profileId', component: DoctorAddServiceComponent},
     {path: 'doctor/getProfile/updateProfile/:profileId', component: DoctorUpdateProfileComponent},
     {path: 'doctor/getProfile', component: DoctorGetProfileComponent},
-    {path: 'doctor/getProfile/getDetailProfile/:profileId', component: DoctorGetDetailProfileComponent}
+    {path: 'doctor/getProfile/getDetailProfile/:profileId', component: DoctorGetDetailProfileComponent},
+    {path: 'doctorDetail/:userId', component: DoctorDetailComponent}
 
     
 ];

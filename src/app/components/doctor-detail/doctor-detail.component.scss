@@ -1,0 +1,66 @@
+.doctor-detail-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;  // Tăng khoảng cách để dễ nhìn hơn
+  }
+  
+  .doctor-detail-container {
+    width: 100%;
+    max-width: 800px;  // Tăng kích thước tối đa
+    padding: 30px;  // Tăng padding để nội dung rộng hơn
+    background: #fff;
+    border-radius: 15px;  // Tăng độ bo góc để phù hợp với kích thước lớn
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;  // Tăng kích thước font cho toàn bộ nội dung
+  }
+  
+  .doctor-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  
+    .doctor-image {
+      width: 120px;  // Tăng kích thước ảnh
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 25px;  // Tăng khoảng cách giữa ảnh và thông tin
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .doctor-info {
+      h2 {
+        font-size: 2rem;  // Tăng kích thước tiêu đề tên bác sĩ
+        margin: 0 0 10px;
+        color: #333;
+      }
+  
+      p {
+        font-size: 1.2rem;  // Tăng kích thước chữ cho các thông tin
+        margin: 6px 0;
+        color: #666;
+      }
+    }
+  }
+  
+  .doctor-contact {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  
+    h3 {
+      font-size: 1.6rem;  // Tăng kích thước tiêu đề phần thông tin liên hệ
+      margin-bottom: 12px;
+      color: #333;
+    }
+  
+    p {
+      font-size: 1.2rem;  // Tăng kích thước chữ cho các thông tin liên hệ
+      margin: 6px 0;
+      color: #555;
+    }
+  }
+  

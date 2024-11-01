@@ -32,6 +32,7 @@ import { DoctorAddServiceComponent } from './components/doctor-components/doctor
 import { DoctorUpdateProfileComponent } from './components/doctor-components/doctor-update-profile/doctor-update-profile.component';
 import { DoctorGetProfileComponent } from './components/doctor-components/doctor-get-profile/doctor-get-profile.component';
 import { DoctorGetDetailProfileComponent } from './components/doctor-components/doctor-get-detail-profile/doctor-get-detail-profile.component';
+import { DoctorDetailComponent } from './components/doctor-detail/doctor-detail.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { DoctorGetDetailProfileComponent } from './components/doctor-components/
     DoctorUpdateProfileComponent,
     DoctorGetProfileComponent,
     DoctorGetDetailProfileComponent,
+    DoctorDetailComponent,
   ],
   imports: [
     BrowserModule,

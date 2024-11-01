@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="doctor-detail-wrapper" *ngIf="doctorResponse">
+    <div class="doctor-detail-container">
+      <!-- Hình ảnh và thông tin cơ bản của bác sĩ -->
+      <div class="doctor-header">
+        <img class="doctor-image" [src]="doctorResponse.image_url" alt="Ảnh bác sĩ" />
+        <div class="doctor-info">
+          <h2>{{ doctorResponse.user_response.full_name }}</h2>
+          <p><strong>Chuyên khoa:</strong> {{ doctorResponse.specialty.name }}</p>
+          <p><strong>Kinh nghiệm:</strong> {{ doctorResponse.experience }} năm</p>
+        </div>
+      </div>
+  
+      <!-- Thông tin liên hệ -->
+      <div class="doctor-contact">
+        <h3>Thông tin liên hệ</h3>
+        <p><strong>Số điện thoại:</strong> {{ doctorResponse.user_response.phone_number }}</p>
+        <p><strong>Địa chỉ:</strong> {{ doctorResponse.user_response.address }}</p>
+        <p><strong>Ngày sinh:</strong> {{ doctorResponse.user_response.birthday | date: 'dd/MM/yyyy' }}</p>
+      </div>
+    </div>
+  </div>
+  
