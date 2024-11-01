@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProfileDTO } from 'src/app/dtos/profile.dto';
 import { Profile } from 'src/app/model/Profile';
 import { Service } from 'src/app/model/Service';
 import { UserResponse } from 'src/app/responses/users/user.responses';
@@ -69,6 +70,27 @@ export class DoctorUpdateProfileComponent implements OnInit{
       }
     });
   }
+
+  saveUpdateProfile(){
+    const profileDTO: ProfileDTO = {
+      schedule_id: 0,
+      diagnosis: this.diagnosis,
+      treatment: this.treatment,
+      medications: this.medications,
+      total_money: 0,
+      total_insurance_money: 0
+    }
+    this.profileService.UpdateProfile(this.profileId, profileDTO).subscribe({
+      next: (response: any) => {
+          alert("Cập nhật hồ sơ bệnh án thành công");
+          this.router.navigate(['/doctor/getProfile/getDetailProfile/', this.profileId]);
+      },
+      error: (error: any) => {
+        alert(error.error.message);
+      }
+    })
+  }
+
   getSelectService() {
     this.profileDetailService.getServicesByProfileId(this.profileId).subscribe({
       next: (response: any) => {

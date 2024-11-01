@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProfileDTO } from 'src/app/dtos/profile.dto';
 import { ProfileDetailDTO } from 'src/app/dtos/profileDetail.dto';
 import { Category } from 'src/app/model/Category';
 import { Profile } from 'src/app/model/Profile';
@@ -163,6 +164,7 @@ export class DoctorAddServiceComponent implements OnInit {
       next: (response: any) =>{
         debugger
         this.profile = response;
+        this.updateMoney(response.id);
         if (this.profile?.id) {
           const addToProfileId = 'profileId:' + this.profile?.id.toString();
           localStorage.removeItem(addToProfileId);
@@ -177,12 +179,23 @@ export class DoctorAddServiceComponent implements OnInit {
       }
     })
   }
-  // routerProfileDetail(){
-  //   if (this.profileId) {
-  //     localStorage.removeItem(this.profileId.toString());
-  //     this.router.navigate(['/doctor/getProfile/getDetailProfile/', this.profileId]);
-  //   } else {
-  //     alert('Không tìm thấy profileId này');
-  //   }
-  // }
+  updateMoney(profileId: number){
+    const profileDTO: ProfileDTO = {
+      schedule_id: 0,
+      diagnosis: "",
+      treatment: "",
+      medications: "",
+      total_money: this.totalAmount,
+      total_insurance_money: this.totalAmountBHYT
+    }
+    debugger
+    this.profileService.UpdateMoney(profileId, profileDTO).subscribe({
+      next: (response: any) =>{
+        debugger
+      },
+      error: (error: any) => {
+        alert(error.error.message);
+      }
+    })
+  }
 }

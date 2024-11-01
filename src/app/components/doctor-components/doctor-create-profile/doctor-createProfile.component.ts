@@ -58,7 +58,9 @@ export class DoctorCreateProfileComponent implements OnInit{
       schedule_id: this.scheduleId,
       diagnosis: this.diagnosis,
       treatment: this.treatment,
-      medications: this.medications
+      medications: this.medications,
+      total_money: 0,
+      total_insurance_money: 0
     }
     debugger
     this.profileService.createProfile( profileDTO).subscribe ({

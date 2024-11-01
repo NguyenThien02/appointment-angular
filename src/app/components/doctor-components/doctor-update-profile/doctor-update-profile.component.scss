@@ -133,3 +133,20 @@ label {
 .editAddService-button:hover {
     background-color: #2587f7; /* Màu tối hơn khi di chuột */
 }
+.editProfile-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #13aa45; /* Nút màu xanh lá */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px; /* Khoảng cách phía trên nút bấm */
+}
+
+.editProfile-button:hover {
+  background-color: #25f77d; /* Màu tối hơn khi di chuột */
+}

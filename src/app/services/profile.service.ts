@@ -26,4 +26,12 @@ import { HttpClient } from "@angular/common/http";
     deleteProfileById(profileId: number){
       return this.http.delete(`${this.apiProfile}/${profileId}`);
     }
+
+    UpdateProfile(profileId: number, profileDTO: ProfileDTO){
+      return this.http.put(`${this.apiProfile}/doctor/${profileId}`, profileDTO);
+    }
+
+    UpdateMoney(profileId: number, profileDTO: ProfileDTO){
+      return this.http.put(`${this.apiProfile}/money/${profileId}`, profileDTO);
+    }
   }

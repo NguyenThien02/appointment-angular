@@ -6,6 +6,7 @@ import {
 } from 'class-validator';
 
 export class ProfileDTO {
+    
     schedule_id: number;
 
     @IsString()
@@ -20,10 +21,16 @@ export class ProfileDTO {
     @IsNotEmpty()
     medications: string;
 
+    total_money: number;
+
+    total_insurance_money: number;
+
     constructor(data: any) {
         this.schedule_id = data.schedule_id;
         this.diagnosis = data.diagnosis;
         this.treatment = data.treatment;
         this.medications = data.medications;
+        this.total_money = data.total_money;
+        this.total_insurance_money = data.total_insurance_money;
     }
 }
